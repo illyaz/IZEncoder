@@ -1,0 +1,180 @@
+﻿<mah:MetroWindow x:Class="IZEncoder.UI.View.MainWindowView"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:local="clr-namespace:IZEncoder"
+                 xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+                 xmlns:cal="http://www.caliburnproject.org"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                 mc:Ignorable="d"
+                 TitleCharacterCasing="Normal" ShowCloseButton="True" ShowMinButton="True"
+                 WindowTransitionsEnabled="False" WindowStartupLocation="CenterScreen"
+                 Width="550" Height="218" ShowTitleBar="False"
+                 ResizeMode="CanMinimize" GlowBrush="{DynamicResource AccentColorBrush}">
+    <Grid IsEnabled="{c:Binding !LoadingIndicator.IsShow}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Margin="10" Grid.Column="0">
+            <Rectangle Fill="{DynamicResource GrayBrush5}" Height="2" Margin="0,40,0,0" VerticalAlignment="Top" />
+            <TextBlock x:Name="VersionTextBlock" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,27,0,0">
+                <Run Text="Version" />
+                <Run Text="{Binding G.Version, Mode=OneWay}" />
+            </TextBlock>
+            <TabControl mah:TabControlHelper.Underlined="TabItems">
+                <TabItem Header="IZEncoder">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                    <Setter Property="Margin" Value="0,0,0,2" />
+                                    <Setter Property="Padding" Value="0,5" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock Text="Input" />
+                            <TextBlock Text="Output" />
+                            <TextBlock Text="Subtitle" />
+                            <TextBlock Text="Encoder" />
+                            <TextBlock Margin="0" Text="On Finished" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+                                    <Setter Property="Margin" Value="0,0,0,2" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="IsReadOnly" Value="True" />
+                                    <Setter Property="mah:TextBoxHelper.SelectAllOnFocus" Value="True" />
+                                </Style>
+                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+                                    <Setter Property="Margin" Value="0,0,0,2" />
+                                </Style>
+                                <Style TargetType="{x:Type Grid}">
+                                    <Setter Property="Margin" Value="0,0,0,2" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <Grid>
+                                <TextBox mah:TextBoxHelper.Watermark="Browse or Drop" Margin="0"
+                                         Text="{Binding G.ActiveProject.Input.Filename, Mode=OneWay}"
+                                         ToolTip="{Binding G.ActiveProject.Input.Filename}"
+                                         cal:Message.Attach="[PreviewMouseLeftButtonDown] = [InputPreviewMouseLeftButtonDown($eventArgs)];
+                                                     [PreviewDragOver] = [InputPreviewDragOver($eventArgs)];
+                                                     [PreviewDrop] = [InputPreviewDrop($eventArgs)]" />
+                            </Grid>
+                            <TextBox x:Name="OutputFile" mah:TextBoxHelper.Watermark="Browse"
+                                     Text="{Binding G.ActiveProject.Output, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False"
+                                     cal:Message.Attach="[PreviewMouseLeftButtonDown] = [OutputPreviewMouseLeftButtonDown($eventArgs)];
+                                                         [LostFocus] = [OutputFileLostFocus()]"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="32" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox mah:TextBoxHelper.Watermark="Browse or Drop"
+                                         Text="{Binding G.ActiveProject.Subtitles.Count, Mode=OneWay, StringFormat=\{0\} files}"
+                                         IsReadOnly="True"
+                                         cal:Message.Attach="[PreviewMouseLeftButtonDown] = [SubtitlePreviewMouseLeftButtonDown($eventArgs)];
+                                                     [PreviewDragOver] = [SubtitlePreviewDragOver($eventArgs)];
+                                                     [PreviewDrop] = [SubtitlePreviewDrop($eventArgs)]"
+                                         BorderThickness="1,1,0,1" Margin="0" />
+                                <Button Padding="0" Grid.Column="1" MinHeight="26" Height="26"
+                                        cal:Message.Attach="[Click] = [SubtitleSettingsClick($eventArgs)]">
+                                    <materialDesign:PackIcon Kind="Settings" />
+                                </Button>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="32" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.Resources>
+                                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                                        <Setter Property="Margin" Value="2,0,0,0" />
+                                        <Setter Property="Padding" Value="15,3,15,4" />
+                                    </Style>
+                                </Grid.Resources>
+                                <ComboBox Grid.Column="0"
+                                          MinHeight="26" Margin="0" ItemsSource="{Binding G.FFmpegTemplates}"
+                                          DisplayMemberPath="Name"
+                                          SelectedValue="{Binding SelectedTemplate}" />
+                                <Button Grid.Column="1" Padding="0"
+                                        cal:Message.Attach="[Click] = [EncoderSettingsClick()]">
+                                    <materialDesign:PackIcon Kind="Settings" />
+                                </Button>
+                            </Grid>
+                            <Grid Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="211" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Margin="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="0" />
+                                    </Grid.ColumnDefinitions>
+                                    <ComboBox Grid.Column="0" Margin="0" SelectedIndex="0" IsEnabled="False">
+                                        <ComboBoxItem Content="Nothing" />
+                                        <ComboBoxItem Content="Shutdown" />
+                                    </ComboBox>
+                                    <Button Grid.Column="1" Padding="0"
+                                            cal:Message.Attach="[Click] = [EncoderSettingsClick()]">
+                                        <materialDesign:PackIcon Kind="Settings" />
+                                    </Button>
+                                </Grid>
+                                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                                            <Setter Property="Margin" Value="2,0,0,0" />
+                                            <Setter Property="Padding" Value="15,3,15,4" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <Button Content="Queue"
+                                            cal:Message.Attach="[Click] = [Queue()]" />
+                                    <Button Content="Advance"
+                                            cal:Message.Attach="[Click] = [Advance()]" />
+                                    <Button Content="Exit"
+                                            cal:Message.Attach="[Click] = [Exit()]" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Settings" mah:ControlsHelper.HeaderFontSize="18" Padding="6,11,6,0"
+                         cal:Message.Attach="[PreviewMouseLeftButtonDown] = [SettingsTab($eventArgs)]" />
+                <TabItem Header="Queue" mah:ControlsHelper.HeaderFontSize="18" Padding="6,11,6,0"
+                         cal:Message.Attach="[PreviewMouseLeftButtonDown] = [QueueTab($eventArgs)]" />
+            </TabControl>
+        </Grid>
+        <Grid x:Name="EncodingProgressGrid" Grid.Column="1" Visibility="Collapsed">
+            <Rectangle HorizontalAlignment="Left" Fill="{DynamicResource GrayBrush5}" Margin="0,5" Width="2" />
+            <Grid>
+                <ContentControl x:Name="EncodingProgress" />
+            </Grid>
+        </Grid>
+        <!--<ItemsControl ItemsSource="{Binding AvisynthParamUICollection}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Margin="5,0" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="26" Margin="0,0,0,2" ToolTip="{Binding ParamUI.Description}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontFamily="Segoe UI Light" VerticalAlignment="Center" Text="{Binding ParamUI.DisplayName}"/>
+                        <ContentControl Grid.Column="1" VerticalAlignment="Center" cal:View.Model="{Binding}" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>-->
+    </Grid>
+</mah:MetroWindow>

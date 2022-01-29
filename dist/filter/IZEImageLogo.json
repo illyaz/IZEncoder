@@ -1,0 +1,127 @@
+{
+  "Guid": "10b921ea-eb28-4eaf-8939-2842dc859e3f",
+  "Name": "IZEImageLogo",
+  "DisplayName": "Image Logo",
+  "Category": "Overlay",
+  "Dependencies": [
+    "IZEScript.avsi"
+  ],
+  "Version": "0.0.1",
+  "Params": [
+    {
+      "Name": "imagefile",
+      "Type": 64,
+      "IgnoreDefault": false,
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.StringFileAvisynthParamUI, IZEncoder",
+        "Filters": {
+          "_ALL_": "All Image file",
+          "jpg": "JPEG Image",
+          "jpeg": "JPEG Image",
+          "png": "Portable Network Graphics",
+          "bmp": "Bitmap Image"
+        },
+        "DisplayName": "Image file"
+      }
+    },
+    {
+      "Name": "x",
+      "Type": 8,
+      "Default": "5",
+      "IgnoreDefault": true,
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.IntPointAvisynthParamUI, IZEncoder",
+        "Interval": 1,
+        "MinValueX": -2147483648,
+        "MaxValueX": 2147483647,
+        "MinValueY": -2147483648,
+        "MaxValueY": 2147483647,
+        "StringFormatX": "{0} px",
+        "StringFormatY": "{0} px",
+        "NullTextX": "NULL",
+        "NullTextY": "NULL",
+        "NameY": "y",
+        "ExtentedParamNames": [
+          "y"
+        ],
+        "DisplayName": "Position"
+      }
+    },
+    {
+      "Name": "y",
+      "Type": 8,
+      "Default": "5",
+      "IgnoreDefault": true,
+      "IsRequired": false
+    },
+    {
+      "Name": "scale",
+      "Type": 16,
+      "Default": "1",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.1,
+        "MaxValue": 10.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Scale"
+      }
+    },
+    {
+      "Name": "opacity",
+      "Type": 16,
+      "Default": "0.5",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 1.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Opacity"
+      }
+    },
+    {
+      "Name": "mode",
+      "Type": 64,
+      "Default": "Blend",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.StringOptionsAvisynthParamUI, IZEncoder",
+        "NullText": "NULL",
+        "Options": {
+          "Blend": "Blend",
+          "Add": "Add",
+          "Subtract": "Subtract",
+          "Multiply": "Multiply",
+          "Chroma": "Chroma",
+          "Luma": "Luma",
+          "Lighten": "Lighten",
+          "Darken": "Darken",
+          "SoftLight": "SoftLight",
+          "HardLight": "HardLight",
+          "Difference": "Difference",
+          "Exclusion": "Exclusion"
+        },
+        "DisplayName": "Mode"
+      }
+    },
+    {
+      "Name": "uid",
+      "Type": 64,
+      "IgnoreDefault": false,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.IdentityAvisynthParamUI, IZEncoder"
+      }
+    }
+  ]
+}

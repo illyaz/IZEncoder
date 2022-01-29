@@ -1,0 +1,14 @@
+{
+  "Name": "[MP4] H264/AAC Intel",
+  "Guid": "a5745958-551d-4df6-8b66-9966018a997b",
+  "Video": "37438c6d-35c8-4d2c-8214-d110c417ad88",
+  "VideoSettings": {
+    "q": 25
+  },
+  "Audio": "19232cb9-ef41-4281-bbc3-4196942ac264",
+  "AudioSettings": {
+    "bitrate": 128
+  },
+  "Container": "628a3269-d458-481e-a812-63a41a3a8669",
+  "ContainerSettings": {}
+}

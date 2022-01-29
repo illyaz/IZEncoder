@@ -1,0 +1,16 @@
+{
+  "Name": "[MKV] H264/FLAC NVidia (Blu-ray)",
+  "Guid": "ba3ad2d6-2250-4882-a59f-cc1965b0b99b",
+  "Video": "8cae3d82-4121-4cee-bcb0-edb32d36de0f",
+  "VideoSettings": {
+    "qp": 30,
+    "profile": "high",
+    "preset": "medium"
+  },
+  "Audio": "174110f9-2874-4ca7-bc74-3c1e925cabf9",
+  "AudioSettings": {
+    "level": "8"
+  },
+  "Container": "c252983f-3a2e-4da2-bdf2-2a1b3ddb131b",
+  "ContainerSettings": {}
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "[MP4] H264/AAC NVidia",
+  "Guid": "a5745958-551d-4df6-8b66-9966018a997b",
+  "Video": "8cae3d82-4121-4cee-bcb0-edb32d36de0f",
+  "VideoSettings": {
+    "qp": 28
+  },
+  "Audio": "19232cb9-ef41-4281-bbc3-4196942ac264",
+  "AudioSettings": {
+    "bitrate": 128
+  },
+  "Container": "628a3269-d458-481e-a812-63a41a3a8669",
+  "ContainerSettings": {}
+}

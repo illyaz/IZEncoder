@@ -1,0 +1,17 @@
+{
+  "Name": "[MKV] H264/FLAC (Blu-ray)",
+  "Guid": "79b22267-f452-4bd4-92a7-ab04baf15163",
+  "Video": "ded2b7b2-2544-49a6-821a-eddce57a90a1",
+  "VideoSettings": {
+    "crf": 22,
+    "preset": "slow",
+    "tune": "animation",
+    "profile": "main -level:v 40"
+  },
+  "Audio": "174110f9-2874-4ca7-bc74-3c1e925cabf9",
+  "AudioSettings": {
+    "level": "8"
+  },
+  "Container": "c252983f-3a2e-4da2-bdf2-2a1b3ddb131b",
+  "ContainerSettings": {}
+}

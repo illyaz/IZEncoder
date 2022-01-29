@@ -1,0 +1,13 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    x:Class="IZEncoder.UI.View.FFmpegParamUI.BooleanFFmpegParamUIView"
+    mc:Ignorable="d">
+    <Grid>
+        <CheckBox IsChecked="{Binding Value, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                  IsThreeState="True" />
+    </Grid>
+</UserControl>

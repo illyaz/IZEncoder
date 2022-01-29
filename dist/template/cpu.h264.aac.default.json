@@ -1,0 +1,14 @@
+{
+  "Name": "[MP4] H264/AAC",
+  "Guid": "fdfbf83c-f821-4abc-af09-e51dc8ea936b",
+  "Video": "ded2b7b2-2544-49a6-821a-eddce57a90a1",
+  "VideoSettings": {
+    "crf": 28
+  },
+  "Audio": "19232cb9-ef41-4281-bbc3-4196942ac264",
+  "AudioSettings": {
+    "bitrate": 128
+  },
+  "Container": "628a3269-d458-481e-a812-63a41a3a8669",
+  "ContainerSettings": {}
+}

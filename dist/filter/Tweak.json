@@ -1,0 +1,228 @@
+{
+  "Guid": "eb30fb39-9a07-4e75-8715-49f361eac165",
+  "Name": "Tweak",
+  "DisplayName": "Tweak",
+  "Category": "Adjustment",
+  "Dependencies": [],
+  "Description": "Adjust hue, saturation, brightness, and contrast.",
+  "Params": [
+    {
+      "Name": "hue",
+      "Type": 16,
+      "Default": "0",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": -180.0,
+        "MaxValue": 180.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Hue",
+        "Description": "Adjust the color hue of the image."
+      }
+    },
+    {
+      "Name": "sat",
+      "Type": 16,
+      "Default": "1",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 10.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Saturation",
+        "Description": "Adjust the color saturation of the image by controlling gain of the color channels."
+      }
+    },
+    {
+      "Name": "bright",
+      "Type": 16,
+      "Default": "0",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": -255.0,
+        "MaxValue": 255.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Brightness",
+        "Description": "Change the brightness of the image by applying a constant bias to the luma channel."
+      }
+    },
+    {
+      "Name": "cont",
+      "Type": 16,
+      "Default": "1",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 10.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Contrast",
+        "Description": "Change the contrast of the image by multiplying the luma values by a constant. "
+      }
+    },
+    {
+      "Name": "coring",
+      "Type": 32,
+      "Default": "True",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.BooleanAvisynthParamUI, IZEncoder",
+        "DisplayName": "Coring",
+        "Description": "When set to true (the default), the luma (Y) and chroma are clipped to TV-range; \r\nWhen set to false, the luma and chroma are unconstrained."
+      }
+    },
+    {
+      "Name": "sse",
+      "Type": 32,
+      "Default": "False",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.BooleanAvisynthParamUI, IZEncoder",
+        "DisplayName": "SSE",
+        "Description": "Only available for YUY2"
+      }
+    },
+    {
+      "Name": "startHue",
+      "Type": 16,
+      "Default": "0",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 360.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Start Hue",
+        "Description": "The hue and saturation will be adjusted for image values in the range [startHue, endHue]\r\nwhen startHue<endHue. Note that the hue is periodic, thus a hue of 360 degrees corresponds with a hue of zero degrees."
+      }
+    },
+    {
+      "Name": "endHue",
+      "Type": 16,
+      "Default": "360",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 360.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "End Hue",
+        "Description": "The hue and saturation will be adjusted for image values in the range [startHue, endHue]\r\nwhen startHue<endHue. Note that the hue is periodic, thus a hue of 360 degrees corresponds with a hue of zero degrees."
+      }
+    },
+    {
+      "Name": "maxSat",
+      "Type": 16,
+      "Default": "150",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 150.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Max saturation",
+        "Description": "The hue and saturation will be adjusted for image values in the range [minSat, maxSat]. \r\nPractically speaking, the percentage saturation of a pixel will be in the range [0, 100]\r\nsince these correspond to valid RGB pixels (100% corresponds to R=255d, G=B=0d, which has a saturation of 119 in units of chroma).\r\nAn overshoot (up to 150%) is allowed for non-valid RGB pixels (150% corresponds to U=V=255d, which has a saturation of √(1272+1272) = 180).\r\nThus when using the default values all pixels will be processed. \r\nRange 0 to 150; default 150, 0; minSat must be less than maxSat "
+      }
+    },
+    {
+      "Name": "minSat",
+      "Type": 16,
+      "Default": "0",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 150.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Min saturation",
+        "Description": "The hue and saturation will be adjusted for image values in the range [minSat, maxSat]. \r\nPractically speaking, the percentage saturation of a pixel will be in the range [0, 100]\r\nsince these correspond to valid RGB pixels (100% corresponds to R=255d, G=B=0d, which has a saturation of 119 in units of chroma).\r\nAn overshoot (up to 150%) is allowed for non-valid RGB pixels (150% corresponds to U=V=255d, which has a saturation of √(1272+1272) = 180).\r\nThus when using the default values all pixels will be processed. \r\nRange 0 to 150; default 150, 0; minSat must be less than maxSat "
+      }
+    },
+    {
+      "Name": "interp",
+      "Type": 16,
+      "Default": "16",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 32.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Interpolate",
+        "Description": "Interpolate the saturation adjustment at the edges of the chosen range to prevent banding."
+      }
+    },
+    {
+      "Name": "dither",
+      "Type": 32,
+      "Default": "False",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.BooleanAvisynthParamUI, IZEncoder",
+        "DisplayName": "Dither",
+        "Description": "When true, ordered dithering is applied when doing the adjustment. (default false)"
+      }
+    },
+    {
+      "Name": "realcalc",
+      "Type": 32,
+      "Default": "False",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.BooleanAvisynthParamUI, IZEncoder",
+        "DisplayName": "Real Calculation",
+        "Description": "When true, force 'no-lookup': pure float calculation of new pixel values (always true for certain Deep Color formats)"
+      }
+    },
+    {
+      "Name": "dither_strength",
+      "Type": 16,
+      "Default": "1",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 32.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Dithering amount",
+        "Description": "Control dithering amount.\r\nFor example, dither_strength=1.0 adds ±0.5 amplitude dither on the 0..255 range, and scaled in proportion for other ranges."
+      }
+    }
+  ]
+}

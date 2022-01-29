@@ -1,0 +1,65 @@
+{
+  "Codec": "h264_nvenc",
+  "Output": "h264",
+  "Guid": "8cae3d82-4121-4cee-bcb0-edb32d36de0f",
+  "Name": "NVidia Encoder | H.264 (CRF)",
+  "Commands": [
+    "-rc constqp -qp {qp} -preset {preset} -profile:v {profile}"
+  ],
+  "Params": [
+    {
+      "Name": "qp",
+      "Type": 1,
+      "Default": "25",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.IntFFmpegParamUI, IZEncoder",
+        "Interval": 1,
+        "MinValue": 0,
+        "MaxValue": 51,
+        "NullText": "NULL",
+        "DisplayName": "Constant Rate Factor",
+        "ToolTip": "Recommand value is 23-28"
+      }
+    },
+    {
+      "Name": "preset",
+      "Type": 8,
+      "Default": "slow",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.StringOptionsFFmpegParamUI, IZEncoder",
+        "NullText": "NULL",
+        "Options": {
+          "slow": "Slow",
+          "medium": "Medium",
+          "fast": "Fast"
+        },
+        "DisplayName": "Preset"
+      }
+    },
+    {
+      "Name": "profile",
+      "Type": 8,
+      "Default": "main",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.StringOptionsFFmpegParamUI, IZEncoder",
+        "NullText": "NULL",
+        "Options": {
+          "baseline": "Base Auto",
+          "baseline -level:v 3.0": "Base 3.0",
+          "baseline -level:v 3.1": "Base 3.1",
+          "main": "Main Auto",
+          "main -level:v 3.1": "Main 3.1",
+          "main -level:v 4.0": "Main 4.0",
+          "high": "High Auto",
+          "high -level:v 4.0": "High 4.0",
+          "high -level:v 4.1": "High 4.1",
+          "high -level:v 4.2": "High 4.2"
+        },
+        "DisplayName": "AVC Profile"
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="IZEncoder.UI.View.TemplateVideoSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:local="clr-namespace:IZEncoder.UI.View"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38" />
+                <RowDefinition Height="202*" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Video Encoder" FontSize="20" FontWeight="Light" Margin="8,5,5,5" VerticalAlignment="Top"
+                       HorizontalAlignment="Left" />
+            <ComboBox ItemsSource="{Binding FFmpegVideoParameters}" SelectedValue="{Binding SelectedVideoParameter}"
+                      DisplayMemberPath="Name" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"
+                      Width="220">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem" BasedOn="{StaticResource {x:Type ComboBoxItem}}">
+                        <Setter
+                            Property="IsEnabled"
+                            Value="{Binding IsAvailable}" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="{DynamicResource AccentColorBrush}" Margin="5,0" />
+            <TextBlock Grid.Row="1" Text="Empty" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" FontFamily="Segoe UI Light" FontSize="30"
+                       Visibility="{c:Binding IsEmpty, FalseToVisibility=Hidden}" />
+            <ScrollViewer Grid.Row="1" Margin="8">
+                <ItemsControl ItemsSource="{Binding FFmpegParamUICollection}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="5,0" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="26" Margin="0,0,0,2" ToolTip="{Binding ParamUI.Description}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontFamily="Segoe UI Light" VerticalAlignment="Center"
+                                       Text="{Binding ParamUI.DisplayName}" ToolTip="{Binding ParamUI.DisplayName}"
+                                       TextTrimming="CharacterEllipsis" />
+                                <ContentControl Grid.Column="1" VerticalAlignment="Center" cal:View.Model="{Binding}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

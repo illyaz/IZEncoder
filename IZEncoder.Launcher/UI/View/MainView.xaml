@@ -1,0 +1,26 @@
+﻿<mah:MetroWindow x:Class="IZEncoder.Launcher.UI.View.MainView"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:local="clr-namespace:IZEncoder.Launcher.UI.View"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 GlowBrush="{DynamicResource AccentColorBrush}"
+                 mc:Ignorable="d" WindowStyle="None" UseNoneWindowStyle="True" ResizeMode="NoResize"
+                 WindowTransitionsEnabled="False"
+                 Title="IZEncoder Launcher" Height="84" Width="284" WindowStartupLocation="CenterScreen">
+    <Grid Margin="5">
+        <TextBlock Text="IZEncoder Launcher" FontSize="22" Margin="5,0,0,0" FontFamily="Segoe UI Light"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock FontSize="10" Margin="6,25,0,0" FontFamily="Segoe UI"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <Run Text="Version" />
+            <Run Text="{Binding G.Version, Mode=OneWay}" />
+        </TextBlock>
+        <TextBlock Text="{Binding Text}" FontFamily="Segoe UI" FontSize="11" VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left" Margin="0,0,0,7" />
+        <mah:MetroProgressBar Background="{DynamicResource GrayBrush5}" Height="5" MinHeight="3"
+                              VerticalAlignment="Bottom" Value="{Binding Percent}" Maximum="{Binding MaxPercent}"
+                              IsIndeterminate="{Binding IsIndeterminate}" />
+    </Grid>
+</mah:MetroWindow>

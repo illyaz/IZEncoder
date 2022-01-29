@@ -1,0 +1,24 @@
+{
+  "Codec": "aac",
+  "Guid": "19232cb9-ef41-4281-bbc3-4196942ac264",
+  "Name": "Software Encoder | AAC (Target Bitrate)",
+  "Commands": [
+    "-b:a {bitrate}k"
+  ],
+  "Params": [
+    {
+      "Name": "bitrate",
+      "Type": 1,
+      "Default": "128",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.IntFFmpegParamUI, IZEncoder",
+        "Interval": 1,
+        "MinValue": 32,
+        "MaxValue": 384,
+        "NullText": "NULL",
+        "DisplayName": "Bitrate"
+      }
+    }
+  ]
+}

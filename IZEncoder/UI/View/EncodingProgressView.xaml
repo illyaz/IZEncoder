@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="IZEncoder.UI.View.EncodingProgressView"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+                 xmlns:cal="http://www.caliburnproject.org"
+                 mc:Ignorable="d" Width="Auto" d:DesignWidth="160">
+    <!-- Size 160/160-->
+    <Grid IsEnabled="{c:Binding !LoadingIndicator.IsShow}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0" />
+                <ColumnDefinition Width="0" />
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="InnerGrid" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel VerticalAlignment="Top">
+                    <StackPanel.Resources>
+                        <Style TargetType="Grid">
+                            <Setter Property="Margin" Value="0,0,0,2" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Length" VerticalAlignment="Center" />
+                        <TextBox Grid.Column="1" Height="20" FontSize="11" MinHeight="0" Padding="0,-2,0,0"
+                                 Text="{c:Binding (Frame + \' / \' + FrameCount)}" IsReadOnly="True" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Bitrate" VerticalAlignment="Center" />
+                        <TextBox Grid.Column="1" Height="20" FontSize="11" MinHeight="0" Padding="0,-2,0,0"
+                                 Text="{Binding Bitrate}" IsReadOnly="True" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Size" VerticalAlignment="Center" />
+                        <TextBox Grid.Column="1" Height="20" FontSize="11" MinHeight="0" Padding="0,-2,0,0"
+                                 Text="{Binding Size}" IsReadOnly="True" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Fps" VerticalAlignment="Center" />
+                        <TextBox Grid.Column="1" Height="20" FontSize="11" MinHeight="0" Padding="0,-2,0,0"
+                                 Text="{Binding Fps}" IsReadOnly="True" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Speed" VerticalAlignment="Center" />
+                        <TextBox Grid.Column="1" Height="20" FontSize="11" MinHeight="0" Padding="0,-2,0,0"
+                                 Text="{Binding Speed}" IsReadOnly="True" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="0,5,0,0" VerticalAlignment="Top">
+                    <StackPanel>
+                        <TextBlock>
+                            <Run Text="Processing: " />
+                            <Run Text="{Binding Processing, StringFormat=\{0:N2\}%}" />
+                        </TextBlock>
+                        <ProgressBar Value="{Binding Processing}" Maximum="100" Height="5"
+                                     Foreground="{DynamicResource AccentColorBrush}"
+                                     Style="{StaticResource MaterialDesignLinearProgressBar}"
+                                     VerticalAlignment="Bottom" Margin="0,3,0,0" />
+                    </StackPanel>
+                    <StackPanel Margin="0,5,0,0">
+                        <TextBlock>
+                            <Run Text="CPU Utilization: " />
+                            <Run Text="{Binding CpuUsage, StringFormat=\{0:N2\}%}" />
+                        </TextBlock>
+                        <ProgressBar Value="{Binding CpuUsage}" Maximum="100" Height="5"
+                                     Foreground="{DynamicResource AccentColorBrush}"
+                                     Style="{StaticResource MaterialDesignLinearProgressBar}"
+                                     VerticalAlignment="Bottom" Margin="0,3,0,0" />
+                    </StackPanel>
+                </StackPanel>
+                <Grid Grid.Row="2" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0"
+                            Content="{c:Binding (G.EncodingQueueProcessor.IsSuspended ? \'Resume\' : \'Pause\')}"
+                            MinHeight="20" Padding="0,0,0,1" Margin="0"
+                            cal:Message.Attach="[Click] = [PauseToggle()]" />
+                    <Button Grid.Column="1" Content="Abort" MinHeight="20" Padding="4,0,4,1" Margin="2,0,0,0"
+                            cal:Message.Attach="[Click] = [Abort()]" />
+                    <Button Grid.Column="2" Content="Detail" MinHeight="20" Padding="4,0,4,1" Margin="2,0,0,0"
+                            cal:Message.Attach="[Click] = [Detail()]" />
+                </Grid>
+            </Grid>
+            <Rectangle Grid.Column="1" Fill="{DynamicResource AccentColorBrush}" Margin="0,5" Visibility="Collapsed" />
+        </Grid>
+    </Grid>
+</UserControl>

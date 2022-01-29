@@ -1,0 +1,19 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:cal="http://www.caliburnproject.org"
+    x:Class="IZEncoder.UI.View.AvisynthParamUI.StringFileAvisynthParamUIView"
+    mc:Ignorable="d">
+    <Grid>
+        <TextBox Text="{Binding Value, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 MaxLines="1"
+                 mah:TextBoxHelper.Watermark="{Binding ParamUI.NullText}"
+                 Cursor="Hand" mah:TextBoxHelper.SelectAllOnFocus="True"
+                 cal:Message.Attach="[PreviewMouseLeftButtonDown] = [Action PreviewMouseLeftButtonDown($eventArgs)];
+                                     [PreviewDragOver] = [Action PreviewDragOver($eventArgs)];
+                                     [PreviewDrop] = [Action PreviewDrop($eventArgs)];" />
+    </Grid>
+</UserControl>

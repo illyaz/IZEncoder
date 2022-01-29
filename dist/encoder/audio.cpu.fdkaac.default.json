@@ -1,0 +1,24 @@
+{
+  "Codec": "libfdk_aac",
+  "Guid": "eb9fdf90-a519-46ed-9214-c03ef79b1a11",
+  "Name": "Software Encoder | FDK-AAC (Target Bitrate)",
+  "Commands": [
+    "-b:a {bitrate}k"
+  ],
+  "Params": [
+    {
+      "Name": "bitrate",
+      "Type": 1,
+      "Default": "128",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.IntFFmpegParamUI, IZEncoder",
+        "Interval": 1,
+        "MinValue": 16,
+        "MaxValue": 384,
+        "NullText": "NULL",
+        "DisplayName": "Bitrate"
+      }
+    }
+  ]
+}

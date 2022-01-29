@@ -1,0 +1,24 @@
+{
+  "Format": "mp4",
+  "Inputs": [
+    "hevc",
+    "h264",
+    "h263",
+    "vc1",
+    "aac",
+    "mp1",
+    "mp2",
+    "mp3",
+    "mp4als",
+    "m4a",
+    "ac3",
+    "vorbis"
+  ],
+  "Output": "mp4",
+  "Guid": "628a3269-d458-481e-a812-63a41a3a8669",
+  "Name": "MP4 Container",
+  "Commands": [
+    ""
+  ],
+  "Params": []
+}

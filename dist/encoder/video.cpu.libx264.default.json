@@ -1,0 +1,87 @@
+{
+  "Codec": "libx264",
+  "Output": "h264",
+  "Guid": "ded2b7b2-2544-49a6-821a-eddce57a90a1",
+  "Name": "Software Encoder | H.264 (CRF)",
+  "Commands": [
+    "-crf {crf} -preset {preset} -profile:v {profile} {tune==\"none\"?\"\":(\"-tune \" + tune)}"
+  ],
+  "Params": [
+    {
+      "Name": "crf",
+      "Type": 1,
+      "Default": "25",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.IntFFmpegParamUI, IZEncoder",
+        "Interval": 1,
+        "MinValue": 0,
+        "MaxValue": 51,
+        "NullText": "NULL",
+        "DisplayName": "Constant Rate Factor",
+        "ToolTip": "Recommand value is 23-28"
+      }
+    },
+    {
+      "Name": "preset",
+      "Type": 8,
+      "Default": "slow",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.StringOptionsFFmpegParamUI, IZEncoder",
+        "NullText": "NULL",
+        "Options": {
+          "slower": "Slower",
+          "slow": "Slow",
+          "medium": "Medium",
+          "fast": "Fast",
+          "faster": "Faster"
+        },
+        "DisplayName": "Preset"
+      }
+    },
+    {
+      "Name": "profile",
+      "Type": 8,
+      "Default": "main",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.StringOptionsFFmpegParamUI, IZEncoder",
+        "NullText": "NULL",
+        "Options": {
+          "baseline": "Base Auto",
+          "baseline -level:v 30": "Base 3.0",
+          "baseline -level:v 31": "Base 3.1",
+          "main": "Main Auto",
+          "main -level:v 31": "Main 3.1",
+          "main -level:v 40": "Main 4.0",
+          "high": "High Auto",
+          "high -level:v 40": "High 4.0",
+          "high -level:v 41": "High 4.1",
+          "high -level:v 42": "High 4.2"
+        },
+        "DisplayName": "AVC Profile"
+      }
+    },
+    {
+      "Name": "tune",
+      "Type": 8,
+      "Default": "none",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.StringOptionsFFmpegParamUI, IZEncoder",
+        "NullText": "NULL",
+        "Options": {
+          "none": "None",
+          "film": "Film",
+          "animation": "Animation",
+          "grain": "Grain",
+          "stillimage": "Still Image",
+          "fastdecode": "Fast Decode",
+          "zerolatency": "Zero Latency"
+        },
+        "DisplayName": "Tuning"
+      }
+    }
+  ]
+}

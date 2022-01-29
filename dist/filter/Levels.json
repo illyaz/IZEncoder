@@ -1,0 +1,119 @@
+{
+  "Guid": "9c6c59e2-4160-4347-9621-29a8d5ea0b07",
+  "Name": "Levels",
+  "DisplayName": "Levels",
+  "Category": "Adjustment",
+  "Dependencies": [],
+  "Description": "Adjusts brightness, contrast, and gamma.",
+  "Params": [
+    {
+      "Name": "input_low",
+      "Type": 16,
+      "Default": "0",
+      "IgnoreDefault": false,
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 255.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Input low",
+        "Description": "Input values at input_low or lower are treated as black, and lighter colors are darkened proportionally. \r\nTherefore raising input_low darkens the output."
+      }
+    },
+    {
+      "Name": "gamma",
+      "Type": 16,
+      "Default": "1",
+      "IgnoreDefault": false,
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 5.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Gamma",
+        "Description": "Gamma adjustment. \r\nHigher gamma brightens the output; lower gamma darkens the output."
+      }
+    },
+    {
+      "Name": "input_high",
+      "Type": 16,
+      "Default": "255",
+      "IgnoreDefault": false,
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 255.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Input high",
+        "Description": "Input values at input_high or higher are treated as white, and darker colors are brightened proportionally. \r\nTherefore lowering input_high brightens the output."
+      }
+    },
+    {
+      "Name": "output_low",
+      "Type": 16,
+      "Default": "0",
+      "IgnoreDefault": false,
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 255.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Output low",
+        "Description": "Dark values brighten to gray as output_low becomes larger."
+      }
+    },
+    {
+      "Name": "output_high",
+      "Type": 16,
+      "Default": "255",
+      "IgnoreDefault": false,
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.FloatAvisynthParamUI, IZEncoder",
+        "Interval": 0.5,
+        "MinValue": 0.0,
+        "MaxValue": 255.0,
+        "StringFormat": "{0:N3}",
+        "NullText": "NULL",
+        "DisplayName": "Output high",
+        "Description": "Light values darken to gray as output_high becomes smaller."
+      }
+    },
+    {
+      "Name": "coring",
+      "Type": 32,
+      "Default": "True",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.BooleanAvisynthParamUI, IZEncoder",
+        "DisplayName": "Coring",
+        "Description": "When true (the default),\r\n    1. input luma is clamped to the range 16d-235d and the chroma to 16d-240d;\r\n    2. this clamped input is scaled from 16d-235d to 0d-255d,\r\n    3. the conversion takes place according to the transfer function above, and then\r\n    4. output is scaled back to 16d-235d."
+      }
+    },
+    {
+      "Name": "dither",
+      "Type": 32,
+      "Default": "False",
+      "IgnoreDefault": true,
+      "IsRequired": false,
+      "UI": {
+        "$type": "IZEncoder.Common.AvisynthFilter.BooleanAvisynthParamUI, IZEncoder",
+        "DisplayName": "Dither",
+        "Description": "When true, ordered dithering is applied to combat banding. Default is false."
+      }
+    }
+  ]
+}

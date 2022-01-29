@@ -1,0 +1,35 @@
+{
+  "Codec": "flac",
+  "Guid": "174110f9-2874-4ca7-bc74-3c1e925cabf9",
+  "Name": "Software Encoder | FLAC",
+  "Commands": [
+    "-compression_level {level}"
+  ],
+  "Params": [
+    {
+      "Name": "level",
+      "Type": 8,
+      "Default": "8",
+      "IsRequired": true,
+      "UI": {
+        "$type": "IZEncoder.Common.FFmpegEncoder.StringOptionsFFmpegParamUI, IZEncoder",
+        "NullText": "NULL",
+        "Options": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "6": "6",
+          "7": "7",
+          "8": "8",
+          "9": "9",
+          "10": "10",
+          "11": "11",
+          "12": "12"
+        },
+        "DisplayName": "Compression Level"
+      }
+    }
+  ]
+}
