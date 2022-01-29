@@ -1,0 +1,275 @@
+{
+  "IZEncoder.AvisynthBridge.dll": {
+    "CanChange": false,
+    "Size": 275456,
+    "CompressSize": 72113,
+    "Hash": "4993f8bb9186a13ff6edc090dd532ac6",
+    "Time": "2022-01-29T14:43:20.265092Z"
+  },
+  "IZEncoder.AvisynthPlayer.dll": {
+    "CanChange": false,
+    "Size": 1089024,
+    "CompressSize": 1044696,
+    "Hash": "208a7e2d5703081a01e85bf29c88cc9c",
+    "Time": "2022-01-29T14:43:22.3860918Z"
+  },
+  "IZEncoder.exe": {
+    "CanChange": false,
+    "Size": 6291456,
+    "CompressSize": 5380711,
+    "Hash": "23b487b73fc5b826a98c13a09b17927d",
+    "Time": "2022-01-29T14:43:25.8350908Z"
+  },
+  "IZEncoder.pdb": {
+    "CanChange": false,
+    "Size": 1072640,
+    "CompressSize": 235431,
+    "Hash": "f8cfe17a365e90c57f43b2601207f41b",
+    "Time": "2022-01-29T14:43:25.8550908Z"
+  },
+  "avisynth\\aWarpsharpMT.dll": {
+    "CanChange": false,
+    "Size": 302080,
+    "CompressSize": 61761,
+    "Hash": "27a7c95d5d4960ce1c7991065087af21",
+    "Time": "2022-01-29T14:42:10.2507338Z"
+  },
+  "avisynth\\ffms2.dll": {
+    "CanChange": false,
+    "Size": 16459264,
+    "CompressSize": 7186728,
+    "Hash": "2aa21c60baf2578b1737d0446ee7daaf",
+    "Time": "2022-01-29T14:42:10.7467306Z"
+  },
+  "avisynth\\IZEScript.avsi": {
+    "CanChange": false,
+    "Size": 5812,
+    "CompressSize": 1885,
+    "Hash": "9e1ac2cb7ae59ea4ec4a1e70e0ac1195",
+    "Time": "2022-01-29T14:42:10.2487315Z"
+  },
+  "avisynth\\IZUnicodeAvisynth.dll": {
+    "CanChange": false,
+    "Size": 41984,
+    "CompressSize": 20140,
+    "Hash": "5aebabd03c4faf00495c86b6a2a3ee8d",
+    "Time": "2022-01-29T14:43:18.3190938Z"
+  },
+  "avisynth\\svpflow1.dll": {
+    "CanChange": false,
+    "Size": 752128,
+    "CompressSize": 318873,
+    "Hash": "0d81c1b50de4691f4116461124f3cec6",
+    "Time": "2022-01-29T14:42:10.2727295Z"
+  },
+  "avisynth\\svpflow2.dll": {
+    "CanChange": false,
+    "Size": 852992,
+    "CompressSize": 404279,
+    "Hash": "fa3727d15b9f360d1067e6099c8468fd",
+    "Time": "2022-01-29T14:42:10.2737296Z"
+  },
+  "avisynth\\VSFilter.dll": {
+    "CanChange": false,
+    "Size": 2207232,
+    "CompressSize": 965257,
+    "Hash": "d317f1f6a79aeffc059d98fdf87f3140",
+    "Time": "2022-01-29T14:42:10.302733Z"
+  },
+  "avisynth\\VSFilterMod.dll": {
+    "CanChange": false,
+    "Size": 3971584,
+    "CompressSize": 1735964,
+    "Hash": "a835dcf3a82cf3d0aa4b325e1b73941b",
+    "Time": "2022-01-29T14:42:10.6967321Z"
+  },
+  "avisynth\\IZTextSubMT.dll": {
+    "CanChange": false,
+    "Size": 136704,
+    "CompressSize": 61921,
+    "Hash": "276ffdd240ad7c156065043c29cb03cf",
+    "Time": "2022-01-29T14:42:10.254732Z"
+  },
+  "avisynth\\IZTextSubMT.SubProcess.exe": {
+    "CanChange": false,
+    "Size": 54784,
+    "CompressSize": 24671,
+    "Hash": "c904cd40234fdaf375a99810d5391c16",
+    "Time": "2022-01-29T14:42:10.2537312Z"
+  },
+  "encoder\\audio.cpu.aac.default.json": {
+    "CanChange": false,
+    "Size": 546,
+    "CompressSize": 317,
+    "Hash": "8696352c3377a3b063ad891371da4cb9",
+    "Time": "2022-01-29T14:42:10.2937286Z"
+  },
+  "encoder\\audio.cpu.fdkaac.default.json": {
+    "CanChange": false,
+    "Size": 557,
+    "CompressSize": 326,
+    "Hash": "492999ecfc3e76629a926271ca773fd4",
+    "Time": "2022-01-29T14:42:10.2937286Z"
+  },
+  "encoder\\container.cpu.mkv.default.json": {
+    "CanChange": false,
+    "Size": 197,
+    "CompressSize": 165,
+    "Hash": "c42b3cd276c23d66477289cdddea6e50",
+    "Time": "2022-01-29T14:42:10.3007318Z"
+  },
+  "encoder\\container.cpu.mp4.default.json": {
+    "CanChange": false,
+    "Size": 343,
+    "CompressSize": 198,
+    "Hash": "98db54bff5dd17e7f5ccd3c4163f461a",
+    "Time": "2022-01-29T14:42:10.3007318Z"
+  },
+  "encoder\\video.cpu.libx264.default.json": {
+    "CanChange": false,
+    "Size": 2453,
+    "CompressSize": 715,
+    "Hash": "cdefa2dcbe6c14beda1ec877e5b59929",
+    "Time": "2022-01-29T14:42:10.3007318Z"
+  },
+  "encoder\\video.nvenc.h264_nvenc.default.json": {
+    "CanChange": false,
+    "Size": 1806,
+    "CompressSize": 576,
+    "Hash": "acdcaeb64a806a82ef8ff43b42fba7d4",
+    "Time": "2022-01-29T14:42:10.3017305Z"
+  },
+  "encoder\\audio.cpu.flac.json": {
+    "CanChange": true,
+    "Size": 774,
+    "CompressSize": 361,
+    "Hash": "263886f05213d5c7b1f66d951f4a8325",
+    "Time": "2022-01-29T14:42:10.6817276Z"
+  },
+  "encoder\\video.qsv.h264_qsv.default.json": {
+    "CanChange": false,
+    "Size": 1781,
+    "CompressSize": 564,
+    "Hash": "d6974822ddd520d9ecba5aa031318779",
+    "Time": "2022-01-29T14:42:10.3017305Z"
+  },
+  "ffmpeg\\check.json": {
+    "CanChange": false,
+    "Size": 569,
+    "CompressSize": 232,
+    "Hash": "f0e5948d2f999377b947c9b379a53d8c",
+    "Time": "2022-01-29T14:42:10.3017305Z"
+  },
+  "ffmpeg\\COPYING.GPLv3.txt": {
+    "CanChange": false,
+    "Size": 35821,
+    "CompressSize": 12315,
+    "Hash": "3c34afdc3adf82d2448f12715a255122",
+    "Time": "2022-01-29T14:42:10.302733Z"
+  },
+  "ffmpeg\\ffmpeg.exe": {
+    "CanChange": false,
+    "Size": 84595200,
+    "CompressSize": 38506311,
+    "Hash": "506ea9de2e167f595b61decb2f36ad06",
+    "Time": "2022-01-29T14:42:12.2577332Z"
+  },
+  "ffmpeg\\ffprobe.exe": {
+    "CanChange": false,
+    "Size": 84503552,
+    "CompressSize": 38454873,
+    "Hash": "a8b5e1b5e219a233f46e2da1c099265c",
+    "Time": "2022-01-29T14:42:12.7747327Z"
+  },
+  "filter\\IZEImageLogo.json": {
+    "CanChange": false,
+    "Size": 3334,
+    "CompressSize": 794,
+    "Hash": "6d13bee619658a7729e11a5267f69bdf",
+    "Time": "2022-01-29T14:42:11.1157337Z"
+  },
+  "filter\\Levels.json": {
+    "CanChange": false,
+    "Size": 4074,
+    "CompressSize": 903,
+    "Hash": "a4cf5133f828c04a04b23d0fc746f250",
+    "Time": "2022-01-29T14:42:11.1217325Z"
+  },
+  "filter\\Tweak.json": {
+    "CanChange": false,
+    "Size": 8603,
+    "CompressSize": 1447,
+    "Hash": "4f69d9942bae65407908e641567cbdb0",
+    "Time": "2022-01-29T14:42:11.1167307Z"
+  },
+  "lib\\avutil-56.dll": {
+    "CanChange": false,
+    "Size": 654336,
+    "CompressSize": 294930,
+    "Hash": "aec1a7c7d8960acdee487ca80375727f",
+    "Time": "2022-01-29T14:42:11.1297404Z"
+  },
+  "lib\\freetype.dll": {
+    "CanChange": false,
+    "Size": 818176,
+    "CompressSize": 349111,
+    "Hash": "65cf37cac459408b77c3cd9f7e07ffa2",
+    "Time": "2022-01-29T14:42:11.16173Z"
+  },
+  "lib\\MediaInfo.dll": {
+    "CanChange": false,
+    "Size": 6039160,
+    "CompressSize": 2391039,
+    "Hash": "f55d797c1de2db549925595e4bf7d16c",
+    "Time": "2022-01-29T14:42:11.3017324Z"
+  },
+  "lib\\SoundTouch.dll": {
+    "CanChange": false,
+    "Size": 160568,
+    "CompressSize": 83424,
+    "Hash": "a3e9416bcd4f95182ba0ada4cb07b8f3",
+    "Time": "2022-01-29T14:42:11.1597302Z"
+  },
+  "lib\\swscale-5.dll": {
+    "CanChange": false,
+    "Size": 539648,
+    "CompressSize": 167076,
+    "Hash": "e7c307d52d0fb196220ec00133814ac2",
+    "Time": "2022-01-29T14:42:11.1727316Z"
+  },
+  "template\\cpu.h264.aac.default.json": {
+    "CanChange": true,
+    "Size": 362,
+    "CompressSize": 245,
+    "Hash": "47c940c3fdb7e0c327bc8b5181b99725",
+    "Time": "2022-01-29T14:42:11.1647331Z"
+  },
+  "template\\nvenc.h264.aac.default.json": {
+    "CanChange": true,
+    "Size": 368,
+    "CompressSize": 251,
+    "Hash": "3c1e60f05fe470f2d8127ac93cfe6dcf",
+    "Time": "2022-01-29T14:42:11.1717349Z"
+  },
+  "template\\qsv.h264.aac.default.json": {
+    "CanChange": true,
+    "Size": 366,
+    "CompressSize": 251,
+    "Hash": "5f77eb30889c90547873f20bcfea4a66",
+    "Time": "2022-01-29T14:42:11.1717349Z"
+  },
+  "template\\nvenc.h264.flac.bluray.mkv.json": {
+    "CanChange": true,
+    "Size": 426,
+    "CompressSize": 291,
+    "Hash": "a4ffe833539c496a0d36694a81bd901f",
+    "Time": "2022-01-29T14:42:11.1727316Z"
+  },
+  "template\\cpu.h264.flac.bluray.mkv.json": {
+    "CanChange": true,
+    "Size": 456,
+    "CompressSize": 304,
+    "Hash": "0fd4cf741be9eb34f4d1e63313ff7cf5",
+    "Time": "2022-01-29T14:42:11.1657322Z"
+  }
+}
