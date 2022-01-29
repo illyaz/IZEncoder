@@ -396,6 +396,5 @@ FodyWeavers.xsd
 
 about.txt
 build/utility
-build/publish/*
 !build/publish/avisynth.json
 !build/publish/vcruntime.json
