@@ -105,7 +105,7 @@ namespace IZEncoder.Launcher
             if(File.Exists("ize.update.server.override"))
                 container.Instance(new LauncherClient(File.ReadAllText("ize.update.server.override")));
             else
-                container.Instance(new LauncherClient("https://static.acez-fs.net/ize/"));
+                container.Instance(new LauncherClient("https://raw.githubusercontent.com/illyaz/IZEncoder/master/build/publish/"));
             g.GlobalWin32Message = new GlobalWin32Message();
 
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
